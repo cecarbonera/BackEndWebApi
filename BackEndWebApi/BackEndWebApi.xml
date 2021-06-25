@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>BackEndWebApi</name>
+    </assembly>
+    <members>
+        <member name="M:BackEndWebApi.Controllers.DepartamentoController.Listar">
+            <summary>
+            D - Diretor
+            G - Gerente
+            F - Funcionario 
+            E - Estagiário
+            </summary>
+            <returns>
+             Listagem de dados
+            </returns>
+        </member>
+        <member name="M:BackEndWebApi.Controllers.EmpregadosController.Listar">
+            <summary>
+            D - Diretor
+            G - Gerente
+            F - Funcionario 
+            E - Estagiário
+            </summary>
+            <returns>
+             Listagem de dados
+            </returns>
+        </member>
+        <member name="M:BackEndWebApi.Controllers.TokenController.Login(System.String,System.String)">
+            <summary>
+            D - Diretor
+            G - Gerente
+            F - Funcionario 
+            E - Estagiário
+            </summary>
+            <param name="usuario">Usuário e Senha de Acesso</param>
+            <returns>
+             Token do Usuário
+            </returns>
+        </member>
+        <member name="T:BackEndWebApi.Program">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:BackEndWebApi.Program.Main(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="args"></param>
+        </member>
+    </members>
+</doc>
