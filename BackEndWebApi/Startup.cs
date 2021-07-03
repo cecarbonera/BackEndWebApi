@@ -22,26 +22,13 @@ namespace BackEndWebApi
         public void ConfigureServices(IServiceCollection services)
         {
             //Habilitar o Cors
-            services.AddCors(c =>
-            {
-                c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            });
+            services.AddCors(c => c.AddPolicy("AllowOrigin", options => options.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader()));
 
             //Serializar o JSON
-            services.AddControllersWithViews().AddJsonOptions(options =>
-            {
-                options.JsonSerializerOptions.PropertyNamingPolicy = null;
-            });
+            services.AddControllersWithViews().AddJsonOptions(options => options.JsonSerializerOptions.PropertyNamingPolicy = null);
 
-            services.AddMvc().AddFluentValidation();
-
-            services
-                .AddControllers()
-                .AddFluentValidation(s =>
-                {
-                    s.RegisterValidatorsFromAssemblyContaining<Startup>();
-                    
-                });
+            services.AddMvc().AddFluentValidation(s => s.RegisterValidatorsFromAssemblyContaining<Startup>());
+            services.AddControllers();
 
             #region Documentação Swagger
             services.AddSwaggerGen(options =>
