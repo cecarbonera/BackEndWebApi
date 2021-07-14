@@ -75,7 +75,7 @@ namespace BackEndWebApi.Controllers
         {
             //Consultar por Usuario e senha
             var _usuario = _conexao.Query<UsuariosDTO>(
-                    $"SELECT ID, USUARIO, SENHA, REGRA FROM DBO.USUARIOS WHERE UPPER(USUARIO) = '{usuario.ToUpper()}' AND SENHA = '{senha}'").ToList();
+                    $"SELECT ID, USUARIO, SENHA, REGRA, EMAIL FROM DBO.USUARIOS WHERE UPPER(USUARIO) = '{usuario.ToUpper()}' AND SENHA = '{senha}'").ToList();
 
             if (_usuario.Count() == 0)
                 return BadRequest();
