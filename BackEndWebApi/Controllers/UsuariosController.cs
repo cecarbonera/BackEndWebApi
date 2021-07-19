@@ -77,7 +77,7 @@ namespace BackEndWebApi.Controllers
             var _usuario = _conexao.Query<UsuariosDTO>(
                     $"SELECT ID, USUARIO, SENHA, REGRA, EMAIL FROM DBO.USUARIOS WHERE UPPER(USUARIO) = '{usuario.ToUpper()}' AND SENHA = '{senha}'").ToList();
 
-            if (_usuario.Count() == 0)
+            if (_usuario.Count == 0)
                 return BadRequest();
 
             // Gerar o Token de acesso
