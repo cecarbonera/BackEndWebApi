@@ -20,7 +20,7 @@ namespace BackEndWebApi.Controllers
         private readonly ILogger<UsuariosController> _logger;
         private readonly SqlConnection _conexao;
 
-        //Construtor
+        //Construtor da classe
         public UsuariosController(IConfiguration configuration, ILogger<UsuariosController> logger)
         {
             _configuration = configuration;
@@ -30,7 +30,7 @@ namespace BackEndWebApi.Controllers
         }
 
         /// <summary>
-        /// Inserir o Usuario no banco de Dados
+        /// Inserir o Usuário no banco de Dados
         /// </summary>
         /// <param name="usuario">Objeto de Dados</param>
         /// <returns>Retorno padrão</returns>
