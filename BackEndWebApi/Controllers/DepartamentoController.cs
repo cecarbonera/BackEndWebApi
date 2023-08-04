@@ -40,7 +40,7 @@ namespace BackEndWebApi.Controllers
         /// </returns>
         [HttpGet]
         [Route("Listar")]
-        [Authorize(Roles = "D,G,F,E")]
+        //[Authorize(Roles = "D,G,F,E")]
         public async Task<ActionResult> Listar()
         {
             try
@@ -68,7 +68,7 @@ namespace BackEndWebApi.Controllers
         /// </returns>
         [HttpGet]
         [Route("ListarDeptoEmpr")]
-        [Authorize(Roles = "D,G,F,E")]
+        //[Authorize(Roles = "D,G,F,E")]
         public async Task<ActionResult> ListarDeptoEmpr()
         {
             try
@@ -88,7 +88,7 @@ namespace BackEndWebApi.Controllers
 
         [HttpPost]
         [Route("Inserir")]
-        [Authorize(Roles = "D,G,F")]
+        //[Authorize(Roles = "D,G,F")]
         public async Task<ActionResult> Inserir(DepartamentoDTO departamento)
         {
             try
@@ -115,7 +115,7 @@ namespace BackEndWebApi.Controllers
 
         [HttpPut]
         [Route("Atualizar")]
-        [Authorize(Roles = "D,G,F")]
+        //[Authorize(Roles = "D,G,F")]
         public async Task<IActionResult> Atualizar(DepartamentoDTO departamento)
         {
             try
@@ -143,7 +143,7 @@ namespace BackEndWebApi.Controllers
         }
 
         [HttpDelete("Excluir/{id}")]
-        [Authorize(Roles = "D,G")]
+        //[Authorize(Roles = "D,G")]
         public async Task<IActionResult> Excluir(int id)
         {
             try

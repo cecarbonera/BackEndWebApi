@@ -11,6 +11,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using System.Threading.Tasks;
+using BackEndWebApi.Messageria;
 
 namespace BackEndWebApi.Controllers
 {
@@ -49,18 +50,16 @@ namespace BackEndWebApi.Controllers
         [Authorize(Roles = "D,G,F,E")]
         public async Task<ActionResult> Listar()
         {
-            IEnumerable<EmpregadosDTO> dados;
-
             try
             {
                 return Ok(_conexao.Query<EmpregadosDTO>(@"SELECT E.CODIGO,
-                                                              E.NOME,
-                                                              CONCAT(CAST(E.CODIGODEPTO AS VARCHAR(2)), ' - ', DESCRICAO) AS CODIGODEPTO,
-                                                              CONVERT(VARCHAR(10), E.DATAENTRADA, 120) AS DATAENTRADA,
-                                                              E.FOTO
-                                                         FROM DBO.EMPREGADOS E
-                                                              INNER JOIN DBO.DEPARTAMENTO D ON (D.CODIGO = E.CODIGODEPTO) 
-                                                        ORDER BY E.CODIGO"));
+                                                                 E.NOME,
+                                                                 CONCAT(CAST(E.CODIGODEPTO AS VARCHAR(2)), ' - ', DESCRICAO) AS CODIGODEPTO,
+                                                                 CONVERT(VARCHAR(10), E.DATAENTRADA, 120) AS DATAENTRADA,
+                                                                 E.FOTO
+                                                            FROM DBO.EMPREGADOS E
+                                                                 INNER JOIN DBO.DEPARTAMENTO D ON (D.CODIGO = E.CODIGODEPTO) 
+                                                           ORDER BY E.CODIGO"));
 
             }
             catch (Exception ex)
@@ -128,6 +127,10 @@ namespace BackEndWebApi.Controllers
                 //Quantidade de linhas alteradas
                 if (resultado != 1)
                     return BadRequest();
+
+                //var msgEnviar = new ObjetoPersonalisado { Id = Guid.NewGuid(), Mensagem = "Ola" + new Random().Next(1, 8).ToString() };
+                //new Publisher().PublisherMessage(msgEnviar);
+                //new Consumer().ConsumerMessage();
 
             }
             catch (Exception ex)
